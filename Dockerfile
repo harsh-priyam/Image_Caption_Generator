@@ -20,7 +20,10 @@ RUN gdown --id 1V10sk5xQnEzkSJLxJaDUaBkGxb1x9l72 -O artifacts/model.pth
 COPY . /app
 
 # Install project dependencies
+
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python -m spacy download en_core_web_sm
 
 # Expose the port your app runs on
 EXPOSE 8000
