@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Caption Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Caption Generator</h1>
+            <p>Generate captions for images using AI!</p>
+        </header>
+        
+        <section class="image-upload">
+            <h2>Upload Image</h2>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Generate Caption</button>
+            </form>
+        </section>
+
+        {% if caption %}
+        <section class="result">
+            <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Uploaded Image" class="uploaded-image">
+            <h2>Generated Caption:</h2>
+            <p>{{ caption }}</p>
+        </section>
+        {% endif %}
+
+        <footer class="site-footer">
+            <p>&copy; 2025 Made by Harsh Priyam. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
